@@ -62,6 +62,7 @@ function appelAjax(event) {
   const requeteAjax = new XMLHttpRequest();
   requeteAjax.open("POST", "traitement.php", true);
   requeteAjax.setRequestHeader("content-type", "application/json");
+  if (titreTache != '') {
   requeteAjax.send(
     JSON.stringify({
       titreTache: titreTache,
@@ -76,7 +77,10 @@ function appelAjax(event) {
     }
     window.location.reload();
   };
-}
+  }else {
+    alert("Veuillez remplir le titre.");
+    return;
+}}
 
 function appelAjaxInscription(event) {
   event.preventDefault();
@@ -86,7 +90,6 @@ function appelAjaxInscription(event) {
   let mdp = document.getElementById("mdp").value;
   let mdp2 = document.getElementById("mdp2").value;
 
-  console.log('YOYOYOY')
   if (nom === '' || prenom === '' || email === '' || mdp === '' || mdp2 === '') {
     alert("Veuillez remplir tous les champs.");
     return;
@@ -101,6 +104,9 @@ function appelAjaxInscription(event) {
         RepAjax = JSON.parse(requeteAjax.responseText);
       }
     };
+    if (nom != '' || prenom != '' || email != '' || mdp != '' ) {
+
+    
     requeteAjax.send(
       JSON.stringify({
         nom: nom,
@@ -119,6 +125,9 @@ function appelAjaxInscription(event) {
     };
   } else {
     alert("Les mots de passe ne correspondent pas");
+  }}else {
+    alert("Veuillez remplir tous les champs.");
+    return;
   }
 }
 

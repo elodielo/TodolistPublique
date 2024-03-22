@@ -25,8 +25,8 @@ Style avec bootstrap
 
 ## Points d'amélioration :
 
-Pouvoir supprimer le compte (accès refusé)
+Pouvoir supprimer le compte (besoin de valider 3 fois)
 Pouvoir trier les tâches selon priorités, dates ou toutes les supprimer.
-Verifier les champs dans les formulaires côté front et back
+Verifier les champs dans les formulaires côté back
 Rajouter la/les catégorie.s
 Ranger les fichiers traitements dans un dossier traitement
