@@ -12,7 +12,21 @@ Renseigner dans le fichier config.php les informations relatives pour faire fonc
 Les informations pour la base de données sont dans le fichier migration et seront
 à mettre dans PhpMyAdmin
 
+## Comptes utilisateurs 
+Il est possible de tester le programme avec connexion: 
+Nom d'utilisateur : elodielo20@gmail.com
+Mot de passe : elo
+
+## Conception
+
+Les requêtes sont envoyées par AJAX 
+Traitement en back par PHP
+Style avec bootstrap
+
 ## Points d'amélioration :
 
 Pouvoir supprimer le compte (accès refusé)
 Pouvoir trier les tâches selon priorités, dates ou toutes les supprimer.
+Verifier les champs dans les formulaires côté front et back
+Rajouter la/les catégorie.s
+Ranger les fichiers traitements dans un dossier traitement

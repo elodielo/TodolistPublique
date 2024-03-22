@@ -26,10 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $utilisateur = $repoUtilisateur->getUtilisateurByMailEtMdp($email, $mdp);
 
                 session_start();
-                //$_SESSION['nom'] = $nom;
-                //$_SESSION['prenom'] = $prenom;
-                //$_SESSION['email'] = $email;
-                //$utilisateur->setId($DB->getDB()->lastInsertID());
                 $_SESSION['utilisateur'] = $utilisateur;
                 $_SESSION['connecte'] = true;
 
@@ -38,7 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 exit;
             }
 
-            // Retour sur la page d'accueil avec les tâches liées à l'utilisateur
         } else {
 
             $erreur = "Les mots de passe ne correspondent pas.";

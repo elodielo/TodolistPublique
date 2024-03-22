@@ -1,7 +1,7 @@
 <?php
 ?>
 <h2> Ajout d'une tâche </h2>
-<div class="container p-3 mb-2 bg-warning-subtle text-warning-emphasis border border-warning">
+<div class="rounded-2 container p-3 mb-2 bg-warning-subtle text-warning-emphasis border border-warning">
 
   <div class="form-group">
     <label for="nom">Entrez la tâche</label>
@@ -20,7 +20,7 @@
   </select>
   <div class="p-2">
     <label required for="dateTache">Start date:</label>
-    <input type="date" id="dateTache" name="trip-start" value="2024-02-22" min="2018-01-01" max="2025-12-31" required />
+    <input type="date" id="dateTache" name="trip-start" value="2024-03-22" min="2024-03-22" max="2026-12-31" required />
   </div>
   <div class="d-flex justify-content-center">
     <button class="btn btn-primary" type="submit" id="boutonAjout">Ajout</button>

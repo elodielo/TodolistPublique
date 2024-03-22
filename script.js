@@ -46,6 +46,7 @@ function supprimerTache() {
 }
 if(boutonAjout){
 boutonAjout.addEventListener("click", appelAjax);}
+
 if(boutonInscription){
 boutonInscription.addEventListener("click", appelAjaxInscription);}
 if(boutonConnexion){
@@ -53,11 +54,11 @@ boutonConnexion.addEventListener("click", appelAjaxConnexion);}
 
 function appelAjax(event) {
   event.preventDefault();
-  let titreTache = document.getElementById("nomTache").value;
-  let description = document.getElementById("descriptionTache").value;
-  let prioriteTache = document.getElementById("prioriteTache").value;
-  let dateTache = document.getElementById("dateTache").value;
-  console.log(prioriteTache);
+  let titreTache = document.getElementById("nomTache").value.trim();
+  let description = document.getElementById("descriptionTache").value.trim();
+  let prioriteTache = document.getElementById("prioriteTache").value.trim();
+  let dateTache = document.getElementById("dateTache").value.trim();
+ 
   const requeteAjax = new XMLHttpRequest();
   requeteAjax.open("POST", "traitement.php", true);
   requeteAjax.setRequestHeader("content-type", "application/json");
@@ -72,7 +73,6 @@ function appelAjax(event) {
   requeteAjax.onreadystatechange = function () {
     if (requeteAjax.readyState === 4 && requeteAjax.status === 200) {
       RepAjax = requeteAjax.responseText;
-      // RepAjax = JSON.parse(requeteAjax.responseText);
     }
     window.location.reload();
   };
@@ -86,7 +86,12 @@ function appelAjaxInscription(event) {
   let mdp = document.getElementById("mdp").value;
   let mdp2 = document.getElementById("mdp2").value;
 
-  // Vérification des mots de passe côté client
+  console.log('YOYOYOY')
+  if (nom === '' || prenom === '' || email === '' || mdp === '' || mdp2 === '') {
+    alert("Veuillez remplir tous les champs.");
+    return;
+  }
+
   if (mdp === mdp2) {
     const requeteAjax = new XMLHttpRequest();
     requeteAjax.open("POST", "traitementUtilisateur.php", true);
@@ -106,24 +111,19 @@ function appelAjaxInscription(event) {
       })
     );
 
-    // Bloc de gestion de la réponse de la requête Ajax
     requeteAjax.onreadystatechange = function () {
       if (requeteAjax.readyState === 4 && requeteAjax.status === 200) {
         RepAjax = JSON.parse(requeteAjax.responseText);
-        console.log(RepAjax);
-        //appelAjaxConnexion(event);
         window.location.reload();
       }
     };
   } else {
-    // Si les mots de passe ne correspondent pas, affichez un message d'erreur
     alert("Les mots de passe ne correspondent pas");
   }
 }
 
 function appelAjaxConnexion(event) {
   event.preventDefault();
-  console.log("coucoucou");
   let emailCo = document.getElementById("emailCo").value;
   let mdpCo = document.getElementById("mdpCo").value;
 

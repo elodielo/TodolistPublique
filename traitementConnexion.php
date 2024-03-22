@@ -19,10 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['connecte'] = true;
 
                 $response = $utilisateur;
-                // $response = array(
-                //     'utilisateur' => $utilisateur,
-                //     'connecte' => true
-                // );
 
                 header("Content-Type: application/json");
                 echo json_encode($response);

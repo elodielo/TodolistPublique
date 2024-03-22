@@ -1,17 +1,16 @@
 <?php
 session_start();
 require_once './src/init.php';
-
-  if (isset($_SESSION['connecte']) && !empty($_SESSION['utilisateur'])) {
+?> 
+<div class="rounded-2 container p-3 mb-2 bg-warning-subtle text-warning-emphasis border border-warning">
+<?php  
+if (isset($_SESSION['connecte']) && !empty($_SESSION['utilisateur'])) {
     $utilisateur = $_SESSION['utilisateur'];
-    //echo "Coucou " . $utilisateur->getPrenom() . " et bienvenue sur ta todolist";
     echo "Bonjour " . $utilisateur['prenom'] . " et bienvenue sur ta todolist.";
-    // 1ere ligne pour inscription
-    // 2eme pour connexion
   } else {
     echo "Tu dois d'abord te connecter pour accéder à ta todolist.";
   }
-  ?>
+  ?> </div>
 
 
 <!DOCTYPE html>
@@ -51,9 +50,6 @@ require_once './src/init.php';
     if (isset($_SESSION['connecte']) && !empty($_SESSION['utilisateur'])) {
       $TachesRepository = new TachesRepository;
       $taches = $TachesRepository->getAllTachesParIDUtilisateur($utilisateur['ID']);
-       //$taches = $TachesRepository->getAllTachesParIDUtilisateur($utilisateur->getId());
-      // 1ere ligne pour inscription
-      // 2eme pour connexion
       $priorite = new PrioritesRepository;
       foreach ($taches as $tache) {
         $nompriorite = $priorite->getNomById($tache->getPriorite());
@@ -65,7 +61,7 @@ require_once './src/init.php';
         } elseif ($tache->getPriorite() == '3') {
           $couleurClasse = 'text-danger';
         }
-        echo ('<div id="task_' . $tache->getId() . '" class="divList container bg-warning-subtle text-warning-emphasis border border-warning">
+        echo ('<div id="task_' . $tache->getId() . '" class="rounded-2 divList container bg-warning-subtle text-warning-emphasis border border-warning">
       <ul class="list-group">
       <li class="list-group-item d-flex justify-content-around .text-info
 
