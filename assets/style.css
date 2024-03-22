@@ -1,0 +1,9 @@
+.css-flame-text {
+    background-image: linear-gradient(0deg, #f00 25%, #ffb300 60%);
+    color: #0000;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-size: 30px;
+    font-weight: bold;
+    display: inline-block;
+}
